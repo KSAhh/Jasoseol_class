@@ -10,10 +10,15 @@ def index(request):
     return render(request, 'index.html', {'all_jss':all_jss})
 
 def create(request):
+    # 작성자 이름 설정하기
+    # print(request.user)         # 터미널에서 현재 로그인 된 user확인
+
     if request.method == "POST":
         filled_form = JssForm(request.POST) # POST방식으로 전해져 온 데이터가 자기소개서 폼에 저장
         if filled_form.is_valid(): # 유효성 검증
-            filled_form.save() # 데이터 기반으로 자기소개서 란 생성
+            temp_form = filled_form.save(commit=False) # 데이터 기반으로 자기소개서 란 생성
+            temp_form.author = request.user
+            temp_form.save()
             return redirect('index') #render와는 세 번째 인자에 데이터를 넘겨줄 수 있지만, redirect는 index페이지로 보내주기만 함
     jss_form = JssForm()
     return render(request, 'create.html', {'jss_form':jss_form} )
