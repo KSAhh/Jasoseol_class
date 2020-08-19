@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm  # auth에 model폼이 들어있음
+from django.contrib.auth.views import LoginView
 # Create your views here.
 
 def signup(request):
@@ -11,3 +12,6 @@ def signup(request):
             return redirect('index') 
 
     return render(request, 'signup.html', {'regi_form':regi_form})
+
+class MyLoginView(LoginView):       #MyLoginview가 django의 내용을 다 담고있음
+    templates_name = 'login_html'
