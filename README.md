@@ -1,8 +1,6 @@
 # -Project- Jasoseol_class(자소설)
 
-<img src="https://img.shields.io/badge/Django-3.1.2-blue">
-<br>
-<img src="https://img.shields.io/badge/Pillow-8.0.1-blue">
+<img src="https://img.shields.io/badge/Django-3.1.2-blue"> <img src="https://img.shields.io/badge/Pillow-8.0.1-blue">
 
 - - -  
 
